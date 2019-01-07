@@ -5,13 +5,13 @@ $ touch index.html, main.js, project.js, styles.css
 $ npm init
 
  copy: {
-   "name": "ping-pong",
+   "name": "PROJECT NAME",
    "version": "1.0.0",
    "description": "",
    "main": "index.js",
    "scripts": {
      "build": "webpack --mode development",
-     "start": "npm run build; webpack-dev-server --open --mode development"
+     "start": "webpack-dev-server --open"
    },
    "keywords": [],
    "author": "",
@@ -36,13 +36,6 @@ $ npm init
 
   into package and run $ npm install
 
-
-Also in package copy:
-
-  "scripts": {
-      "build": "webpack"
-    },
-
 $ touch webpack.config.js
 
 Then copy into config:
@@ -58,7 +51,7 @@ Then copy into config:
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'Ping Pong',
+        title: 'PROJECT NAME',
         template: './src/index.html',
         inject: 'body'
       })
