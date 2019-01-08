@@ -70,3 +70,7 @@ Then copy into config:
   };
 
 $ npm run build
+
+$ ./node_modules/.bin/jasmine init
+
+only once but MAY NEED TO DO AGAIN ON NEW MACHINE $npm install -g karma-cli
