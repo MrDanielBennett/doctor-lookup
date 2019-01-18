@@ -4,6 +4,21 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {UserSearch} from './search';
 
+
+// function getThatGoodData(){
+//   promise.then(function(response) {
+//      let body = JSON.parse(response);
+//      let doctorData = ()
+// },
+// function(error) {
+//   $('.showErrors').text(`There was an error processing your request: ${error.message}`);
+// });
+// }
+//
+//
+//
+
+
 $(document).ready(function() {
   $('#symptom-button').click(function(){
     event.preventDefault();
@@ -15,13 +30,11 @@ $(document).ready(function() {
 
     promise.then(function(response) {
        let body = JSON.parse(response);
-      $('#name').text(body.data[0].practices[0].name);
-      $('#address-street').text(body.data[0].practices[0].visit_address.street);
-      $('#address-city').text(body.data[0].practices[0].visit_address.city);
-      $('#address-state').text(body.data[0].practices[0].visit_address.state);
-      $('#phone-number').text(body.data[0].practices[0].phones[0].number);
-      $('#website').text(body.data[0].practices[0].website);
-      $('#currently-accpeting').text(body.data[0].practices[0].accpets_new_patients);
+       for(let i = 0; i < 10; i++){
+       $('.result').append(body.data[i].practices[0].name + " " + `<br>` + body.data[i].practices[0].visit_address.street + " " + `<br>` +  body.data[i].practices[0].visit_address.city + ", " +  body.data[i].practices[0].visit_address.state + " " + `<br>` + "Phone Number: " + " " + body.data[i].practices[0].phones[0].number + " " + `<br>` + "Taking new Patients? (t/f): " +
+       // removing website because it seems no doctors have them.
+        body.data[i].practices[0].accepts_new_patients + `<br>` + `<br>`)
+     }
     },
     function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error.message}`);
@@ -36,14 +49,13 @@ $(document).ready(function() {
 
     let promise = newDocSearch.searchDoctors(doctorFirstName, doctorLastName);
 
-
     promise.then(function(response) {
        let body = JSON.parse(response);
-       $('#name').text(body.data[0].practices[0].name);
-       $('#address-street').text(body.data[0].practices[0].visit_address.street);
-       $('#phone-number').text(body.data[0].practices[0].phones[0].number);
-       $('#website').text(body.data[0].practices[0].website);
-       $('#currently-accpeting').text(body.data[0].practices[0].accpets_new_patients);
+       for(let i = 0; i < 10; i++){
+         $('.result').append(body.data[i].practices[0].name + " " + `<br>` + body.data[i].practices[0].visit_address.street + " " + body.data[i].practices[0].visit_address.city + " " + body.data[i].practices[0].visit_address.state + " " +  body.data[i].practices[0].phones[0].number + " " + `<br>` + "Taking new Patients? (t/f): " +
+         // removing website because it seems no doctors have them.
+          body.data[i].practices[0].accepts_new_patients + `<br>` + `<br>`)
+       }
     },
     function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error.message}`);
