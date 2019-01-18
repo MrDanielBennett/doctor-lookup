@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Doctor Lookup</title>
-  </head>
-  <body>
+<head>
+  <title>Doctor Lookup</title>
+</head>
+<body>
+  <div class="container">
+
     <h2>Doctor Look up</h2>
 
     <div class="search-for-doc">
@@ -11,14 +13,30 @@
       <form id="symptom-form">
         <label for="symptom-input"> Please Enter you symptom here and we will search for a doctor for you.</label><br>
         <input type="text" id="symptom-input" value=""><br>
-        <button type="submit" name="button">go!</button>
+        <button type="submit" id="symptom-button">go!</button>
       </form>
-
-      <div class="search-for">
-
-      </div>
-
     </div>
 
-  </body>
+    <div class="search-for-doc">
+      <h3>Search for Specific Doctor</h3>
+      <form id="doctor-form">
+        <label for="doctor-input">Please enter the first and last name of the doctor you are searching for.</label><br>
+        <input type="text" id="doctor-input" value=""><br>
+        <button type="submit" id="doc-button">go!</button><br>
+      </form>
+    </div>
+
+
+    <div class="results">
+      <p id="first-name"></p>
+      <p id="last-name"></p>
+      <p id="address"></p>
+      <p id="phone-number"></p>
+      <p id="website"></p>
+      <p id="currently-accpeting"></p>
+
+    </div>
+  </div>
+
+</body>
 </html>
