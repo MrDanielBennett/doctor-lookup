@@ -17,6 +17,8 @@ $(document).ready(function() {
        let body = JSON.parse(response);
       $('#name').text(body.data[0].practices[0].name);
       $('#address-street').text(body.data[0].practices[0].visit_address.street);
+      $('#address-city').text(body.data[0].practices[0].visit_address.city);
+      $('#address-state').text(body.data[0].practices[0].visit_address.state);
       $('#phone-number').text(body.data[0].practices[0].phones[0].number);
       $('#website').text(body.data[0].practices[0].website);
       $('#currently-accpeting').text(body.data[0].practices[0].accpets_new_patients);
