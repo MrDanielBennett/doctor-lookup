@@ -11,19 +11,19 @@ $(document).ready(function() {
     let newSearch = new UserSearch(symptom);
     console.log(newSearch);
 
-    let promise = newSearch.searchSymptoms();
+    let promise = newSearch.searchSymptoms(symptom);
 
     promise.then(function(response) {
-      body = JSON.parse(response);
-      $('#first-name').text(`The humidity in ${city} is ${body.main.humidity}%`);
-      $('#last-name').text(`The temperature in Kelvins is ${body.main.temp} degrees.`);
-      $('#address')
-      $('#phone-number')
-      $('#website')
-      $('#currently-accpeting')
-    }, function(error) {
+       let body = JSON.parse(response);
+      $('#name').text(body.data[0].practices[0].name);
+      $('#address-street').text(body.data[0].practices[0].visit_address.street);
+      $('#phone-number').text(body.data[0].practices[0].phones[0].number);
+      $('#website').text(body.data[0].practices[0].website);
+      $('#currently-accpeting').text(body.data[0].practices[0].accpets_new_patients);
+    },
+    function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error.message}`);
-      });
+    });
 
   });
   $('#doc-button').click(function(){
@@ -32,7 +32,20 @@ $(document).ready(function() {
     let doctorLastName = $('#doctor-last-name-input').val();
     let newDocSearch = new UserSearch("N/A", doctorFirstName, doctorLastName);
 
-    let promise = newDocSearch.searchDoctors();
+    let promise = newDocSearch.searchDoctors(doctorFirstName, doctorLastName);
+
+
+    promise.then(function(response) {
+       let body = JSON.parse(response);
+       $('#name').text(body.data[0].practices[0].name);
+       $('#address-street').text(body.data[0].practices[0].visit_address.street);
+       $('#phone-number').text(body.data[0].practices[0].phones[0].number);
+       $('#website').text(body.data[0].practices[0].website);
+       $('#currently-accpeting').text(body.data[0].practices[0].accpets_new_patients);
+    },
+    function(error) {
+      $('.showErrors').text(`There was an error processing your request: ${error.message}`);
+    });
 
     console.log(newDocSearch);
   });

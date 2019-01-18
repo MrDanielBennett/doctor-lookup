@@ -5,10 +5,10 @@ export class UserSearch {
     this.doctorLastName = doctorLastName;
   }
 
-  searchSymptoms(){
+  searchSymptoms(symptom){
     return new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
-      let url = `https://api.betterdoctor.com/2016-03-01/doctors?query=${this.symptom}&location=or-portland&sort=best-match-asc&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
+      let url = `https://api.betterdoctor.com/2016-03-01/doctors?query=${symptom}&location=or-portland&sort=best-match-asc&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
       request.onload = function() {
         if (this.status === 200) {
           resolve(request.response);
@@ -21,10 +21,10 @@ export class UserSearch {
     });
   }
 
-  searchDoctors(){
+  searchDoctors(doctorFirstName, doctorLastName){
     return new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
-      let url = `https://api.betterdoctor.com/2016-03-01/doctors?qfirst_name=${this.doctorFirstName}&last_name=${this.doctorLastName}&location=or-portland&sort=best-match-asc&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
+      let url = `https://api.betterdoctor.com/2016-03-01/doctors?qfirst_name=${doctorFirstName}&last_name=${doctorLastName}&location=or-portland&sort=best-match-asc&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
       request.onload = function() {
         if (this.status === 200) {
           resolve(request.response);
