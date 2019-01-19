@@ -1,3 +1,27 @@
-body {
-  background-color: #7FDBFF;
+html {
+  height: 100vh;
+}
+button {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+h3{
+  text-shadow: 1px 1px black;
+}
+.container {
+  margin-top: 15px;
+  padding-top: 10px;
+  height: 100%;
+  background-color: brown;
+  color: white;
+}
+.results {
+  color: black;
+  background-color: lightgray;
+  border: 2px solid white;
+  box-shadow: 1px 1px black;
+  padding: 5px;
+}
+#header{
+  text-shadow: 1px 1px black;
 }
