@@ -12,6 +12,8 @@ $(document).ready(function() {
     let promise = newSearch.searchSymptoms(symptom);
 
     promise.then(function(response) {
+      $('.doctor-info').text("")
+      $('#symptom-form').children('input').val('')
       let body = JSON.parse(response);
       if (body.data.length === 0){
         $('.doctor-info').text("There are no doctors in the Portland area that match the input.");
@@ -36,6 +38,8 @@ $(document).ready(function() {
     let promise = newDocSearch.searchDoctors(doctorFirstName, doctorLastName);
 
     promise.then(function(response) {
+      $('.doctor-info').text("")
+      $('#doctor-form').children('input').val('')
       let body = JSON.parse(response);
       if (body.data.length === 0){
         $('.doctor-info').text("There are no doctors in the Portland area that match the input.");
