@@ -20,7 +20,7 @@ _Ever need to find a doctor when feeling sick, with this program you'll be able 
 
 ## Setup/Installation Requirements
 
-* Clone or Download from Github @ https://github.com/MrDanielBennett/galatic-age-calculator.git
+* Clone or Download from Github @ https://github.com/MrDanielBennett/doctor-lookup
 * In root of directory run "$ npm install"
 * Next run "$ npm run build"
 * create .env file and type: exports.apiKey = [YOUR API KEY]
